@@ -2,25 +2,13 @@ import React, { useState } from 'react';
 import { ErrorBoundary } from './components/error/ErrorBoundary';
 import { ProductProvider } from './context/ProductContext';
 import { Header } from './components/common/Header';
-import { Footer } from './components/common/Footer';
 import { Toast } from './components/common/Toast';
 import { ConfirmDialog } from './components/common/ConfirmDialog';
 import { ProductGrid } from './components/catalog/ProductGrid';
 import { ProductDetailModal } from './components/catalog/ProductDetailModal';
 import { ProductFormModal } from './components/form/ProductFormModal';
 
-// Buggy Component helper to demonstrate ErrorBoundary
-const BuggyComponent: React.FC = () => {
-  throw new Error('Simulated runtime error triggered by user to test Error Boundary!');
-};
-
 function MainApp() {
-  const [shouldCrash, setShouldCrash] = useState(false);
-
-  if (shouldCrash) {
-    return <BuggyComponent />;
-  }
-
   return (
     <div className="min-h-screen bg-white dark:bg-zinc-950 flex flex-col justify-between selection:bg-zinc-900 selection:text-white dark:selection:bg-zinc-100 dark:selection:text-zinc-900">
       <div>
@@ -44,7 +32,7 @@ function MainApp() {
         </section>
 
         {/* Main Catalog Section */}
-        <main id="main-content" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <main id="main-content" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 pb-12">
           <ProductGrid />
         </main>
       </div>
@@ -54,9 +42,6 @@ function MainApp() {
       <ProductFormModal />
       <ConfirmDialog />
       <Toast />
-
-      {/* Semantic Footer */}
-      <Footer onTriggerError={() => setShouldCrash(true)} />
     </div>
   );
 }
