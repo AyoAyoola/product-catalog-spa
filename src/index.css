@@ -8,7 +8,7 @@
   }
   
   body {
-    @apply antialiased text-zinc-900 bg-zinc-50 dark:bg-zinc-950 dark:text-zinc-100 font-sans tracking-tight;
+    @apply antialiased text-zinc-900 bg-white dark:bg-zinc-950 dark:text-zinc-100 font-sans tracking-tight;
   }
 }
 
@@ -44,7 +44,7 @@
 }
 
 .mono-panel {
-  @apply bg-white dark:bg-zinc-900/90 border border-zinc-200/80 dark:border-zinc-800 shadow-sm;
+  @apply bg-white dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-sm;
 }
 
 .mono-panel-hover {

@@ -22,20 +22,20 @@ function MainApp() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col justify-between selection:bg-brand-500 selection:text-white">
+    <div className="min-h-screen bg-white dark:bg-zinc-950 flex flex-col justify-between selection:bg-zinc-900 selection:text-white dark:selection:bg-zinc-100 dark:selection:text-zinc-900">
       <div>
         {/* Navigation & Brand Header */}
         <Header />
 
         {/* Hero & Intro Banner */}
-        <section aria-label="Catalog Overview" className="bg-gradient-to-b from-brand-50/50 to-transparent dark:from-slate-900/40 dark:to-transparent py-8 border-b border-gray-100 dark:border-slate-800/40">
+        <section aria-label="Catalog Overview" className="bg-white dark:bg-zinc-950 py-8 border-b border-zinc-200/60 dark:border-zinc-800/80">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div>
-                <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+                <h1 className="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
                   Product Catalog & Inventory
                 </h1>
-                <p className="mt-1 text-sm text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed">
+                <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400 max-w-2xl leading-relaxed">
                   Browse, filter, and manage your product showcase in real-time. Features accessible keyboard navigation, instant category filtering, price sliders, and full product creation.
                 </p>
               </div>
