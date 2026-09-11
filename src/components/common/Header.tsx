@@ -1,6 +1,6 @@
 import React from 'react';
 import { useProductCatalog } from '../../context/ProductContext';
-import { Package, Plus, Sun, Moon, SlidersHorizontal, RefreshCw, Layers } from 'lucide-react';
+import { Plus, Sun, Moon, SlidersHorizontal, RefreshCw, Sparkles, Command } from 'lucide-react';
 
 export const Header: React.FC = () => {
   const {
@@ -15,52 +15,49 @@ export const Header: React.FC = () => {
   } = useProductCatalog();
 
   return (
-    <header className="sticky top-0 z-30 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-gray-200/80 dark:border-slate-800/80 transition-colors">
+    <header className="sticky top-0 z-30 bg-white/70 dark:bg-slate-950/70 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-800/60 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 gap-4">
           
           {/* Logo & Brand */}
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-brand-500/20">
-              <Package className="w-5 h-5" />
+          <div className="flex items-center gap-3 group cursor-pointer">
+            <div className="relative w-9 h-9 rounded-xl bg-gradient-to-br from-slate-900 to-slate-800 dark:from-brand-500 dark:to-indigo-600 flex items-center justify-center text-white shadow-md shadow-slate-900/10 dark:shadow-brand-500/20 group-hover:scale-105 transition-transform duration-300">
+              <Sparkles className="w-4 h-4 text-amber-300 dark:text-amber-200" />
+              <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-white dark:border-slate-950 animate-pulse" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-extrabold text-xl tracking-tight text-gray-900 dark:text-white">
-                  Pro<span className="text-brand-600 dark:text-brand-400">Catalog</span>
+                <span className="font-extrabold text-lg tracking-tight text-slate-900 dark:text-white">
+                  Pro<span className="text-brand-600 dark:text-brand-400 font-black">Catalog</span>
                 </span>
-                <span className="hidden sm:inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-brand-100 dark:bg-brand-950 text-brand-700 dark:text-brand-300 border border-brand-200 dark:border-brand-800">
-                  SPA
+                <span className="hidden sm:inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700/80">
+                  Minimal v2.0
                 </span>
               </div>
-              <p className="text-[11px] text-gray-500 dark:text-gray-400 hidden md:block">
-                Catalog Management & Showcase
-              </p>
             </div>
           </div>
 
           {/* Quick Counter Badges */}
-          <div className="hidden lg:flex items-center gap-4">
-            <div className="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-slate-800/80 px-3 py-1.5 rounded-lg border border-gray-200/60 dark:border-slate-700/60">
-              <Layers className="w-3.5 h-3.5 text-brand-500" />
-              <span>Total Catalog: <strong className="font-bold text-gray-900 dark:text-white">{products.length}</strong></span>
+          <div className="hidden lg:flex items-center gap-2">
+            <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 bg-slate-100/70 dark:bg-slate-900/80 px-3 py-1.5 rounded-full border border-slate-200/60 dark:border-slate-800/80">
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-500" />
+              <span>Catalog: <strong className="font-bold text-slate-900 dark:text-white">{products.length}</strong></span>
             </div>
-            <div className="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-slate-800/80 px-3 py-1.5 rounded-lg border border-gray-200/60 dark:border-slate-700/60">
-              <span>Matching: <strong className="font-bold text-brand-600 dark:text-brand-400">{filteredProducts.length}</strong></span>
+            <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 bg-slate-100/70 dark:bg-slate-900/80 px-3 py-1.5 rounded-full border border-slate-200/60 dark:border-slate-800/80">
+              <span>Showing: <strong className="font-bold text-brand-600 dark:text-brand-400">{filteredProducts.length}</strong></span>
             </div>
           </div>
 
           {/* Header Action Controls */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-2 sm:gap-2.5">
             
             {/* Mobile Filter Button */}
             <button
               onClick={() => setIsMobileFilterOpen(true)}
               aria-label="Open filter menu"
-              className="md:hidden inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-slate-800 rounded-xl hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500"
+              className="md:hidden p-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-slate-100/80 dark:bg-slate-900/80 rounded-xl hover:bg-slate-200/80 dark:hover:bg-slate-800 transition-all focus:outline-none focus:ring-2 focus:ring-brand-500"
             >
               <SlidersHorizontal className="w-4 h-4" />
-              <span className="sr-only sm:not-sr-only">Filters</span>
             </button>
 
             {/* Simulate Refresh Button */}
@@ -69,7 +66,7 @@ export const Header: React.FC = () => {
               disabled={isLoading}
               title="Simulate API Refresh"
               aria-label="Simulate catalog refresh"
-              className="p-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white bg-gray-100 dark:bg-slate-800 rounded-xl hover:bg-gray-200 dark:hover:bg-slate-700 transition-all focus:outline-none focus:ring-2 focus:ring-brand-500 disabled:opacity-50"
+              className="p-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white bg-slate-100/80 dark:bg-slate-900/80 rounded-xl hover:bg-slate-200/80 dark:hover:bg-slate-800 transition-all focus:outline-none focus:ring-2 focus:ring-brand-500 disabled:opacity-40"
             >
               <RefreshCw className={`w-4 h-4 ${isLoading ? 'animate-spin text-brand-500' : ''}`} />
             </button>
@@ -79,7 +76,7 @@ export const Header: React.FC = () => {
               onClick={toggleDarkMode}
               aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
               title={darkMode ? "Switch to light mode" : "Switch to dark mode"}
-              className="p-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white bg-gray-100 dark:bg-slate-800 rounded-xl hover:bg-gray-200 dark:hover:bg-slate-700 transition-all focus:outline-none focus:ring-2 focus:ring-brand-500"
+              className="p-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white bg-slate-100/80 dark:bg-slate-900/80 rounded-xl hover:bg-slate-200/80 dark:hover:bg-slate-800 transition-all duration-300 hover:rotate-45 focus:outline-none focus:ring-2 focus:ring-brand-500"
             >
               {darkMode ? (
                 <Sun className="w-4 h-4 text-amber-400" />
@@ -91,10 +88,10 @@ export const Header: React.FC = () => {
             {/* Add Product Button */}
             <button
               onClick={openAddModal}
-              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white bg-brand-600 hover:bg-brand-700 active:bg-brand-800 rounded-xl shadow-md shadow-brand-500/20 transition-all transform active:scale-95 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900"
+              className="group relative inline-flex items-center gap-2 px-4 py-2 text-xs sm:text-sm font-bold text-white bg-slate-900 dark:bg-brand-600 hover:bg-brand-600 dark:hover:bg-brand-500 active:scale-95 rounded-xl shadow-sm hover:shadow-lg hover:shadow-brand-500/25 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500"
             >
-              <Plus className="w-4 h-4 stroke-[3]" />
-              <span className="hidden xs:inline">Add Product</span>
+              <Plus className="w-4 h-4 stroke-[2.5] group-hover:rotate-90 transition-transform duration-300" />
+              <span>Add Item</span>
             </button>
 
           </div>
